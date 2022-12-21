@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+<title>Student</title>
+
+<style type="text/css">
+body {
+	background-image:
+		url('https://www.pngitem.com/middle/hwixhoT_school-management-system-background-images-hd-hd-png/');
+}
+
+
+
+html {
+	font-size: 70%;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+body {
+	background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGVhcm5pbmd8ZW58MHx8MHx8&w=1000&q=80');
+	font-family: 'Poppins', sans-serif;
+	font-size: 2rem;
+}
+
+*::selection {
+	background: #2b3dda;
+	color: #fff;
+}
+
+html {
+	font-size: 75.5%;
+	overflow-x: hidden;
+}
+
+header .navbar ul {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header .navbar ul li a {
+	font-size: 1.57rem;
+	color: #0E2431;
+	font-weight: 200;
+	text-decoration: none;
+	letter-spacing: 0.04rem;
+}
+
+header .navbar ul li a.active {
+	color: #011aff;
+	border-bottom: .2rem solid #011aff;
+	padding: .5rem 0;
+}
+
+header .navbar ul li a:hover {
+	color: red;
+	border-bottom: .2rem solid black;
+	padding: .3rem 0;
+}
+
+header .navbar ul {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header .navbar li {
+	margin-left: 7.5rem;
+}
+table{
+justify-content: center;
+align-items: center;
+padding:2rem;
+margin-left: 7.5rem;
+}
+th{
+background-color:blue;
+color:white
+}
+body{
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+}
+</style>
+</head>
+<body>
+
+	<header>
+
+
+		<div id="menu"></div>
+		<nav class="navbar">
+			<ul>
+				<li><a href="/home">Home</a></li>
+				<li><a class="active" href="#">Students</a></li>
+				<li><a th:href="@{/addNewStudent}">Add New Student </a></li>
+				<li><a th:href="@{/contactme}">Contact Us</a></li>
+				<li><a th:href="@{/logout}">Log Out</a></li>
+				
+				
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<div class="row">
+
+			<div style="width:50%">
+				<table class="table table-hover table-bordered" >
+					<thead class="table-light">
+						<tr>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Fav Subject</th>
+							<th>Action</th>
+
+						</tr>
+					</thead>
+					<tbody>
+
+						<tr th:each="student : ${studentsList} ">
+							<td th:text="${student.firstname}"></td>
+							<td th:text="${student.lastname}"></td>
+							<td th:text="${student.favSub}"></td>
+							<td><a
+								th:href="@{/deleteStudent/{id}(id=${student.rollNum})}" "return confirm('Are You Really want to delete');"
+							
+							class="btn btn-danger">Delete</a> <a
+								th:href="@{/updateStudent/{id}(id=${student.rollNum})}"
+								class="btn btn-secondary">Update</a></td>
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+			<div style="margin-left: 15rem">
+				<img draggable="false"
+					src="https://www.icegif.com/wp-content/uploads/icegif-653.gif"
+					alt="gif">
+			</div>
+		</div>
+	</section>
+
+
+
+
+</body>
+</html>

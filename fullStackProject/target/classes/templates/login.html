@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<title>Loging</title>
+<style>
+body{
+background-image: url('https://i.pinimg.com/originals/44/0f/cf/440fcf3223b1f17104641f7e2833b2b3.jpg');
+color:white;
+    font-size: 2rem;
+    padding-top: 214px;
+     padding-left: 260px;
+   
+}
+
+</style> 	 
+</head>
+<body>
+	<form th:action="@{/loging}" th:object=${adminObj} method="get">
+		<!-- target="_blank" -->
+		<table class="welcome">
+			<thead>
+				<tr>
+					<th colspan="2">Sign in</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Email Address</td>
+					<td><input type="text" class="text" name="username" placeholdr="Email"
+						th:field="*{email}" autofocus required /></td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" class="text" name="password"
+						th:field="*{Password}" required /></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2"><a href="/validatingData"> <input
+							type="submit" class="btn btn-success" value="Sign In" />
+					</a></td>
+
+				</tr>
+			</tfoot>
+		</table>
+	</form>
+
+</body>
+</html>
